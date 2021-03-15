@@ -1,4 +1,5 @@
-// All code written here is from https://medium.com/the-web-tub/making-a-todo-app-with-flutter-5c63dab88190
+// Most of the code written here is from
+// https://medium.com/the-web-tub/making-a-todo-app-with-flutter-5c63dab88190
 
 import 'package:flutter/material.dart';
 
@@ -64,11 +65,11 @@ class TodoListState extends State<TodoList> {
         return new AlertDialog(
           title: new Text('Mark "${_todoItems[index]}" as done?'),
           actions: <Widget> [
-            new FlatButton(
+            new TextButton(
               child: new Text('Cancel'),
               onPressed: () => Navigator.of(context).pop(),
             ),
-            new FlatButton(
+            new TextButton(
               child: new Text('Mark as done'),
               onPressed: () {
                 _removeTodoItem(index);
@@ -84,10 +85,9 @@ class TodoListState extends State<TodoList> {
   Widget _buildTodoList() {
     return new ListView.builder(
         itemBuilder: (context, index) {
-          if (index < _todoItems.length) {
-            return _buildTodoItem(_todoItems[index], index);
-          }
+          return _buildTodoItem(_todoItems[index], index);
         },
+        itemCount: _todoItems.length,
     );
   }
 
